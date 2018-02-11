@@ -39,7 +39,7 @@ def treatReceviedData(inData):
 			# Stop video recording first
 			if (inData.videoState == 1):
 				# Show live feed, but do not record to disk
-				call(["/home/pi/camera/start_live_feed_noDiskStorage.sh"])
+				call(["/home/pi/raspberrypi-openrov/ROV Scripts/Servo Control/start_live_feed_noDiskStorage.sh"])
 			
 			# Shutdown with 'sudo shutdown -h now'
 			shutdownEverything()
@@ -55,11 +55,11 @@ def treatReceviedData(inData):
 		if not (inData.videoState == lastRecordingState):
 			if (inData.videoState == 0):
 				# Show live feed, but do not record to disk
-				call(["/home/pi/camera/start_live_feed_noDiskStorage.sh"])
+				call(["/home/pi/raspberrypi-openrov/ROV Scripts/Servo Control/start_live_feed_noDiskStorage.sh"])
 				print '\n\nstarting live feed\n\n'
 			else:
 				# Record video
-				call(["/home/pi/camera/start_live_feed_withDiskStorage.sh"])
+				call(["/home/pi/raspberrypi-openrov/ROV Scripts/Servo Control/start_live_feed_withDiskStorage.sh"])
 				print '\n\nstarting live feed WITH RECORDING!\n\n'
 				
 			lastRecordingState = inData.videoState
